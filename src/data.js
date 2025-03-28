@@ -1,63 +1,94 @@
+import etica from '../public/imgs/disciplines/etica-oab.jpg'
+import constitucional from '../public/imgs/disciplines/direito-constitucional.jpg'
+import administrativo from '../public/imgs/disciplines/direito-administrativo.jpg'
+import civil from '../public/imgs/disciplines/direito-civil.jpg'
+import processualCivil from '../public/imgs/disciplines/direito-processual-civil.webp'
+import penal from '../public/imgs/disciplines/direito-penal.webp'
+import processualPenal from '../public/imgs/disciplines/direito-processual-penal.webp'
+import trabalhista from '../public/imgs/disciplines/direito-do-trabalho.jpg'
+import processualTrabalhista from '../public/imgs/disciplines/direito-processual-trabalho.jpg'
+import empresarial from '../public/imgs/disciplines/direito-empresarial.webp'
+import tributario from '../public/imgs/disciplines/direito-tributario.jpg'
+import humanos from '../public/imgs/disciplines/direitos-humanos.webp'
+import ambiental from '../public/imgs/disciplines/direito-ambiental.jpeg'
+import internacional from '../public/imgs/disciplines/direito-internacional.jpg'
+import filosofia from '../public/imgs/disciplines/filosofia-direito.jpg'
+
 export let disciplinesData = [
     {
         "id": 1,
         "name": "Ética e Estatuto da OAB",
+        "image": etica
     },
     {
         "id": 2,
         "name": "Direito Constitucional",
+        "image": constitucional
     },
     {
         "id": 3,
         "name": "Direito Administrativo",
+        "image": administrativo
     },
     {
         "id": 4,
         "name": "Direito Civil",
+        "image": civil
     },
     {
         "id": 5,
         "name": "Direito Processual Civil",
+        "image": processualCivil
     },
     {
         "id": 6,
         "name": "Direito Penal",
+        "image": penal
     },
     {
         "id": 7,
         "name": "Direito Processual Penal",
+        "image": processualPenal
     },
     {
         "id": 8,
         "name": "Direito do Trabalho",
+        "image": trabalhista
     },
     {
         "id": 9,
         "name": "Direito Processual do Trabalho",
+        "image": processualTrabalhista
     },
     {
         "id": 10,
         "name": "Direito Empresarial",
+        "image": empresarial
     },
     {
         "id": 11,
         "name": "Direito Tributário",
+        "image": tributario
     },
     {
         "id": 12,
         "name": "Direitos Humanos",
+        "image": humanos
     },
     {
         "id": 13,
         "name": "Direito Ambiental",
+        "image": ambiental 
     },
     {
         "id": 14,
         "name": "Direito Internacional",
+        "image": internacional
     },
     {
         "id": 15,
         "name": "Filosofia do Direito",
+        "image": filosofia
     }
 ]
 
