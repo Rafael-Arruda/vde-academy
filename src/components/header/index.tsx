@@ -8,7 +8,7 @@ import Image from "next/image"
 import { IoClose } from "react-icons/io5";
 import { RiMenu3Fill } from "react-icons/ri";
 
-import Logo from '../../../public/vde-logo.png'
+import Logo from '../../../public/imgs/logos/vde-logo.png'
 
 export function Header() {
     const [isOpenMenu, setIsOpenMenu] = useState(false);
@@ -20,7 +20,7 @@ export function Header() {
     return(
         <header className="w-full shadow-md bg-white">
             <Container>
-                <div className="h-20 flex items-center justify-between">
+                <div className="h-16 sm:h-20 flex items-center justify-between">
                     <Link href="/">
                         <Image 
                             src={Logo} 
