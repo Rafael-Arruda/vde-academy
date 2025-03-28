@@ -51,7 +51,7 @@ export function Header() {
                     </button>
 
                     <nav 
-                        className={`flex flex-col items-end gap-4 sm:hidden fixed top-0 bg-white shadow-md w-56 p-4 pb-8 rounded-bl-2xl transition-all duration-300 ${isOpenMenu? 'right-0' : '-right-56'}`}
+                        className={`flex flex-col items-end gap-4 sm:hidden fixed top-0 z-20 bg-white shadow-md w-56 p-4 pb-8 rounded-bl-2xl transition-all duration-300 ${isOpenMenu? 'right-0' : '-right-56'}`}
                     >
                         <button type="button" className="cursor-pointer" onClick={() => handleOpenMenu(false)}>
                             <IoClose size={30} color="#000"/>
