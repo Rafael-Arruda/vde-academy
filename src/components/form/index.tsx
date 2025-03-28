@@ -54,10 +54,11 @@ export function Form() {
         // Limpar campos
         setSelectedDiscipline("");
         setSelectedSubject("");
+        setSubjects([]);
     }
 
     return (
-        <form action="" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <div className="flex items-center gap-5 mt-5 flex-col sm:flex-row">
                 <Select onValueChange={handleDisciplineChange} value={selectedDiscipline}>
                     <SelectTrigger className="w-full sm:w-[250px] cursor-pointer">
