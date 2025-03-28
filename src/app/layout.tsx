@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 
+import { ToastContainer } from 'react-toastify';
+
 import { Header } from "@/components/header";
 
 const poppins = Poppins({
@@ -28,6 +30,8 @@ export default function RootLayout({
       >
         <Header />
         {children}
+
+        <ToastContainer/>
       </body>
     </html>
   );
