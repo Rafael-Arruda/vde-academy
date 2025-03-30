@@ -7,6 +7,8 @@ import { ToastContainer } from 'react-toastify';
 import { Header } from "@/components/header";
 import { Stopwatch } from "@/components/stopwatch";
 
+import { AppProvider } from "@/context";
+
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
@@ -29,11 +31,13 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} antialiased`}
       >
-        <Header />
-        <Stopwatch />
-        {children}
+        <AppProvider>
+          <Header />
+          <Stopwatch />
+          {children}
 
-        <ToastContainer/>
+          <ToastContainer/>
+        </AppProvider>
       </body>
     </html>
   );

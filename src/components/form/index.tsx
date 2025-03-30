@@ -2,8 +2,10 @@
 
 import * as React from "react"
 import { useState, FormEvent } from "react"
-
+import { toast } from 'react-toastify';
 import { Button } from "@/components/ui/button"
+import { useAppContext } from "@/context";
+import { disciplinesData, subjectsData } from '@/data'
 import {
     Select,
     SelectContent,
@@ -14,11 +16,9 @@ import {
     SelectValue,
 } from "@/components/ui/select"
 
-import { toast } from 'react-toastify';
-
-import { disciplinesData, subjectsData } from '@/data'
-
 export function Form() {
+    const { isActive, startTimer } = useAppContext();
+
     const [selectedDiscipline, setSelectedDiscipline] = useState<string>("");
     const [selectedSubject, setSelectedSubject] = useState<string>("");
 
@@ -50,6 +50,7 @@ export function Form() {
         }
 
         // Iniciar cronômetro
+        startTimer();
 
         // Limpar campos
         setSelectedDiscipline("");
@@ -92,9 +93,10 @@ export function Form() {
                     </SelectContent>
                 </Select>
 
-                <Button 
-                    type="submit" 
-                    className="bg-[#8216c6] hover:bg-[#8216c6]/80 cursor-pointer w-full sm:w-fit"
+                <Button
+                    type="submit"
+                    className={`bg-[#8216c6] hover:bg-[#8216c6]/80 w-full sm:w-fit ${isActive? "cursor-not-allowed" : "cursor-pointer"}`}
+                    disabled={isActive}
                 >
                     Iniciar
                 </Button>
