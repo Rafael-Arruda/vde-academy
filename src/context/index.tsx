@@ -83,11 +83,39 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         const resData = localStorage.getItem('subjects');
 
         if (resData) {
-            list = [...JSON.parse(resData), data]
-        } else {
-            list = [data]
+            list = JSON.parse(resData);
+
+            // Retorna o item caso ele já exista na lista
+            const existingItem = list.find(
+                (item) => item.name === data.name && item.theme === data.theme
+            );
+
+            if (existingItem) {
+                // Dados atualizados do item existente
+                const currentData: SubjectProps = {
+                    id: existingItem.id,
+                    name: existingItem.name,
+                    theme: existingItem.theme,
+                    studyTime: existingItem.studyTime + data.studyTime,
+                    lastViewed: formatDate(new Date()),
+                    image: existingItem.image
+                }
+
+                // Retorna a lista sem o item repetido
+                const currentList = list.filter(
+                    (item) => !(item.name === data.name && item.theme === data.theme)
+                ); 
+                
+                // Atualiza a lista
+                list = [...currentList, currentData]
+                setSubjects(list);
+                localStorage.setItem("subjects", JSON.stringify(list))
+                
+                return
+            }
         }
 
+        list.push(data)
         setSubjects(list);
         localStorage.setItem("subjects", JSON.stringify(list))
     }
