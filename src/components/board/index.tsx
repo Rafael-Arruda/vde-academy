@@ -1,30 +1,24 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { SubjectProps } from "@/utils/types";
 import { Card } from "../card"
 
-import { SubjectProps } from "@/utils/types";
+import { useAppContext } from "@/context"
 
 export function Board() {
-    const [subjects, setSubjects] = useState<SubjectProps[]>([]);
 
-    useEffect(() => {
-        function getSubjects() {
-            const res = localStorage.getItem('subjects');
-            if (res) {
-                setSubjects(JSON.parse(res));
-            }
-        }
-
-        getSubjects();
-    }, [subjects]);
+    const { subjects, loading } = useAppContext();
 
     return(
         <div className='flex items-center gap-y-6 gap-x-5 flex-wrap mt-5'>
-            {subjects.length > 0 ? subjects.map((subject) => (
-                <Card />
+            {subjects.length > 0 ? subjects.map((subject: SubjectProps) => (
+                <Card key={subject.id} data={subject}/>
             )) : (
-                <p className="text-gray-600 text-sm">Não possui dados salvos ainda :(</p>
+                loading? (
+                    <p className="text-gray-600 text-sm">Carregando...</p>
+                ) : (
+                    <p className="text-gray-600 text-sm">Que pena, parece que você não possui dados salvos ainda :(</p>
+                )
             )}
         </div>
     )

@@ -1,8 +1,8 @@
 export interface SubjectProps {
-    id: number;
+    id: string;
     name: string;
     theme: string;
-    studyTime: Date;
+    studyTime: number;
     lastViewed: string;
     image: string;
 }

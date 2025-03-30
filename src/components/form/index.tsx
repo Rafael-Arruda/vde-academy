@@ -15,11 +15,20 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
+import { StaticImageData } from "next/image";
 
 export function Form() {
-    const { isActive, startTimer } = useAppContext();
+    // Estados do Contexto
+    const { 
+        isActive, 
+        startTimer, 
+        setCurrentDiscipline, 
+        setCurrentSubject,
+        setCurrentDisciplineImage
+    } = useAppContext();
 
     const [selectedDiscipline, setSelectedDiscipline] = useState<string>("");
+    const [selectedDisciplineImage, setSelectedDisciplineImage] = useState<StaticImageData>();
     const [selectedSubject, setSelectedSubject] = useState<string>("");
 
     // Lista de temas da disciplina selecionada
@@ -27,9 +36,11 @@ export function Form() {
 
     function handleDisciplineChange(value: string) {
         const id = disciplinesData.find((discipline) => discipline.name === value)?.id
+        const image = disciplinesData.find((discipline) => discipline.name === value)?.image
         const subjectsList = subjectsData.find((item) => item.disciplineId === id)?.items
 
         setSelectedDiscipline(value);
+        setSelectedDisciplineImage(image);
         setSelectedSubject("");
         setSubjects(subjectsList || []);
     }
@@ -50,6 +61,9 @@ export function Form() {
         }
 
         // Iniciar cronômetro
+        setCurrentDiscipline(selectedDiscipline)
+        setCurrentSubject(selectedSubject)
+        setCurrentDisciplineImage(selectedDisciplineImage)
         startTimer();
 
         // Limpar campos
