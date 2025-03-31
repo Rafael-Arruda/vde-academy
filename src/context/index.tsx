@@ -78,47 +78,34 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     }
 
     function handleStorageData(data: SubjectProps) {
-        let list: SubjectProps[] = []
-
-        const resData = localStorage.getItem('subjects');
-
-        if (resData) {
-            list = JSON.parse(resData);
-
-            // Retorna o item caso ele já exista na lista
-            const existingItem = list.find(
-                (item) => item.name === data.name && item.theme === data.theme
+        const resData = localStorage.getItem("subjects");
+        let list: SubjectProps[] = resData ? JSON.parse(resData) : [];
+    
+        // Verifica se o item já existe na lista
+        const existingItem = list.find(
+            (item) => item.name === data.name && item.theme === data.theme
+        );
+    
+        if (existingItem) {
+            // Atualiza os dados do item existente
+            list = list.map((item) =>
+                item.name === data.name && item.theme === data.theme
+                    ? { 
+                        ...item, 
+                        studyTime: item.studyTime + data.studyTime, 
+                        lastViewed: formatDate(new Date()) 
+                      }
+                    : item
             );
-
-            if (existingItem) {
-                // Dados atualizados do item existente
-                const currentData: SubjectProps = {
-                    id: existingItem.id,
-                    name: existingItem.name,
-                    theme: existingItem.theme,
-                    studyTime: existingItem.studyTime + data.studyTime,
-                    lastViewed: formatDate(new Date()),
-                    image: existingItem.image
-                }
-
-                // Retorna a lista sem o item repetido
-                const currentList = list.filter(
-                    (item) => !(item.name === data.name && item.theme === data.theme)
-                ); 
-                
-                // Atualiza a lista
-                list = [...currentList, currentData]
-                setSubjects(list);
-                localStorage.setItem("subjects", JSON.stringify(list))
-                
-                return
-            }
+        } else {
+            // Adiciona um novo item à lista
+            list.push(data);
         }
-
-        list.push(data)
+    
+        // Atualiza o estado e o localStorage
         setSubjects(list);
-        localStorage.setItem("subjects", JSON.stringify(list))
-    }
+        localStorage.setItem("subjects", JSON.stringify(list));
+    }    
 
     const formatDate = (date: Date) => {
         const formattedDate = date.toLocaleDateString("pt-BR", {
