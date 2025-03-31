@@ -47,13 +47,16 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         setIsActive(true);
         setIsRunning(true);
     };
+
     const stopTimer = () => {
         setIsRunning(false);
     };
+    
     const resetTimer = () => {
         setIsRunning(false);
         setTime(0);
     };
+    
     const finishTimer = () => {
         setIsActive(false);
         setIsRunning(false);
@@ -87,25 +90,27 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         );
     
         if (existingItem) {
-            // Atualiza os dados do item existente
-            list = list.map((item) =>
-                item.name === data.name && item.theme === data.theme
-                    ? { 
-                        ...item, 
-                        studyTime: item.studyTime + data.studyTime, 
-                        lastViewed: formatDate(new Date()) 
-                      }
-                    : item
+            // Cria o novo objeto atualizado
+            const updatedItem = { 
+                ...existingItem, 
+                studyTime: existingItem.studyTime + data.studyTime, 
+                lastViewed: formatDate(new Date()) 
+            };
+    
+            // Remove o item antigo e adiciona o atualizado no início da lista
+            list = list.filter(
+                (item) => !(item.name === data.name && item.theme === data.theme)
             );
+            list.unshift(updatedItem); 
         } else {
-            // Adiciona um novo item à lista
-            list.push(data);
+            // Adiciona um novo item no início da lista
+            list.unshift(data);
         }
     
         // Atualiza o estado e o localStorage
         setSubjects(list);
         localStorage.setItem("subjects", JSON.stringify(list));
-    }    
+    }
 
     const formatDate = (date: Date) => {
         const formattedDate = date.toLocaleDateString("pt-BR", {
