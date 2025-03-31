@@ -184,7 +184,7 @@ export let subjectsData = [
         ]
     },
     {
-        "id": 10,
+        "disciplineId": 10,
         "items": [
             "Empresário e Sociedade Empresarial",
             "Títulos de Crédito",

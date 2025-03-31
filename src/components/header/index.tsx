@@ -39,7 +39,7 @@ export function Header() {
                             Home
                         </Link>
                         <Link 
-                            href="/details"
+                            href="/detalhes"
                             className="font-semibold text-lg text-black hover:opacity-60 transition-all duration-300"
                         >
                             Detalhes
@@ -63,7 +63,7 @@ export function Header() {
                             Home
                         </Link>
                         <Link 
-                            href="/details"
+                            href="/detalhes"
                             className="font-semibold text-lg text-black hover:opacity-60 transition-all duration-300"
                         >
                             Detalhes

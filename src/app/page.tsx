@@ -11,7 +11,7 @@ export default function Home() {
           <Form />
         </section>
 
-        <section className='mt-12'>
+        <section className='mt-12 mb-12'>
           <h2 className='font-bold text-xl'>Confira as últimas matérias que você estudou:</h2>
           <Board />
         </section>
