@@ -3,6 +3,7 @@
 import { v4 as uuidv4 } from "uuid";
 import { createContext, useContext, useState, useEffect } from 'react'
 import { SubjectProps } from "@/utils/types";
+import { toast } from 'react-toastify';
 
 const AppContext = createContext<any>(undefined)
 
@@ -78,6 +79,11 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         handleStorageData(data);
 
         finishTimer()
+
+        toast.success("Cronômetro finalizado!", {
+            autoClose: 3000,
+            closeOnClick: true
+        })
     }
 
     function handleStorageData(data: SubjectProps) {

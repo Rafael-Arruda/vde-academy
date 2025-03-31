@@ -59,12 +59,18 @@ export function Form() {
             });
             return;
         }
-
-        // Iniciar cronômetro
+        
         setCurrentDiscipline(selectedDiscipline)
         setCurrentSubject(selectedSubject)
         setCurrentDisciplineImage(selectedDisciplineImage)
+
+        // Iniciar cronômetro
         startTimer();
+
+        toast.success("Bons estudos!", {
+            autoClose: 3000,
+            closeOnClick: true,
+        })
 
         // Limpar campos
         setSelectedDiscipline("");
