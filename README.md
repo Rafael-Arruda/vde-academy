@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## 📘 Vde Academy - Plataforma de Estudos
 
-## Getting Started
+Uma aplicação para monitorar suas sessões de estudo de forma eficiente, com estatísticas e histórico detalhado.
 
-First, run the development server:
+![Painel do Estudante](./public/imgs/dashboard-screenshot.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Instalação e Execução
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Clone o repositório
+git clone https://github.com/Rafael-Arruda/vde-academy.git 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Acesse a pasta do projeto
+cd vde-academy 
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Instale as dependências
+npm install  
 
-## Learn More
+# Execute a aplicação
+npm run dev 
 
-To learn more about Next.js, take a look at the following resources:
+A aplicação estará disponível em http://localhost:3000/.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📌 Funcionalidades
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# 🏠 Página Home
+- Dois seletores: disciplina e tema.
+- Os temas são filtrados conforme a disciplina escolhida.
+- Dados fictícios (mockados) em /src/data.js.
+- O botão "Iniciar" só é habilitado quando ambos os campos são preenchidos.
+- Um cronômetro aparece no canto superior direito durante o estudo.
+- Ao finalizar, os dados são refletidos globalmente através do contexto da aplicação.
+- Exibição de cards com as últimas disciplinas e temas estudados.
 
-## Deploy on Vercel
+# 📊 Página Detalhes
+- Exibe estatísticas visuais (gráfico e cards) sobre o tempo de estudo.
+- Dados atualizados automaticamente ao finalizar o cronômetro.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# 🛠️ Tecnologias Utilizadas
+- Next.js – Framework para React.
+- Tailwind CSS – Estilização rápida e eficiente.
+- TypeScript – Tipagem estática para maior segurança no código.
+- React Toastify – Alertas e notificações.
+- React Icons – Ícones modernos e práticos.
+- Shadcn UI – Componentes minimalistas e customizáveis.
