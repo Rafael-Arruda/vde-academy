@@ -2,6 +2,7 @@
 
 import { SubjectProps } from "@/utils/types";
 import { Card } from "../card"
+import { SkeletonCardImage } from "../skeleton-card-image";
 
 import { useAppContext } from "@/context"
 
@@ -15,7 +16,16 @@ export function Board() {
                 <Card key={subject.id} data={subject}/>
             )) : (
                 loading? (
-                    <p className="text-gray-600 text-sm">Carregando...</p>
+                    <>
+                        <SkeletonCardImage/>
+                        <SkeletonCardImage/>
+                        <SkeletonCardImage/>
+                        <SkeletonCardImage/>
+                        <SkeletonCardImage/>
+                        <SkeletonCardImage/>
+                        <SkeletonCardImage/>
+                        <SkeletonCardImage/>
+                    </>
                 ) : (
                     <p className="text-gray-600 text-sm">Que pena, parece que você não possui dados salvos ainda :(</p>
                 )
