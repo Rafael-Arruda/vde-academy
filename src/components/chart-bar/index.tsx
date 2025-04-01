@@ -40,8 +40,6 @@ export function ChartBar() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (!subjects.length) return; // Evita execução desnecessária
-
         // Agrupa os tempos de estudo por disciplina
         const studyMap = subjects.reduce((acc, subject) => {
             acc[subject.name] = (acc[subject.name] || 0) + subject.studyTime;
@@ -66,6 +64,7 @@ export function ChartBar() {
             {loading ? (
                 <SkeletonChart />
             ) : (
+                !loading && chartData.length === 0? "" : (
                 <Card>
                     <CardHeader>
                         <CardTitle>Gráfico de Barras</CardTitle>
@@ -96,6 +95,7 @@ export function ChartBar() {
                         </div>
                     </CardFooter>
                 </Card>
+                ) 
             )}
         </>
     )
